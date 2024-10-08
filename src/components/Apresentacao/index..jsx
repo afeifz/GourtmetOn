@@ -35,7 +35,7 @@ const Section = styled.section`
 
 function Apresentacao() {
         return (
-        <h1>aaaaaa</h1>
+        <h1></h1>
     )
 
 }
