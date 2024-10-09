@@ -3,29 +3,33 @@ import styled from  'styled-components'
 const StyledNav = styled.nav `
     font-family: "Fira Sans", sans-serif;
     display: flex;
+    flex-wrap:wrap;
     align-items:center;
-    justify-content:space-between;
-    background-color: black ;
-
+    justify-content:space-around;
+    background-color: black;
+    padding:1rem;
+    
     div {
         display: flex;
-        gap: 60px;
-        margin-right: 100px;
+        gap: 4rem;
+        flex-wrap:wrap;
     }
 
     h2 {
         font-family: "Bebas Neue", sans-serif;
-        margin-left: 100px;
         color: white;
     }
 
-    p {
-        cursor: pointer;
+    a {
+        text-decoration:none;
         color: white;
     }
 
     span {
         color: orange;
+    }
+    @media (max-width: 795px) {
+        
     }
 `
 
@@ -34,9 +38,11 @@ function Navi() {
     <StyledNav>
         <h2>G<span>ou</span>rmet<span>On</span></h2>
         <div>
-        <p>Home</p>
-        <p>Apresentação</p>
-        <p>Funcionalidades</p>
+        <a href='#hero'>Home</a>
+        <a href='#apresentacao'>Apresentação</a>
+        <a href='#funcionalidades'>Funcionalidades</a>
+        <a href=''>Depoimentos</a>
+        <a href=''>Contato</a>
         </div>
     </StyledNav>
     )

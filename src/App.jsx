@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import styled from 'styled-components'
 import Navi from './components/Navi'
-import Apresentacao from './components/Apresentacao/index.'
+import Apresentacao from './components/Apresentacao'
+import Hero from './components/Hero'
+import Header from './components/Header'
+import Main from './components/Main'
+import Footer from './components/Footer'
+
+
 
 
 function App() {
@@ -9,10 +14,9 @@ function App() {
 
   return (
     <>
-    <Navi>
-
-    </Navi>
-    <Apresentacao></Apresentacao>
+    <Header></Header>
+    <Main></Main>
+    <Footer></Footer>
     </>
   )
 }

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ImageComponent from "../imagens/images";
 
+
 const StyledHero = styled.div `
     width: 30%;
     margin-left: 100px;
@@ -80,6 +81,14 @@ const StyledHero = styled.div `
   transform: translateX(0%);
   animation: color_anim 1s infinite 0.4s;
 }
+  @media (max-width:700px) {
+    .imagem {
+      display:none;
+    }
+  }
+  @media (max-width:510px) {
+    width:12rem;
+  }
 
 `
 
@@ -89,7 +98,7 @@ function Hero() {
     const altText = "Descrição da imagem";
     return(
         <StyledHero>
-        <div>
+        <div id="hero">
         <h1>Peça as Suas Comidas Favoritas!</h1>
         <p>Descubra o prazer de comer bem! Com nosso app de delivery, você tem acesso a uma seleção incrível de restaurantes, pratos deliciosos e entregas rápidas, tudo na palma da sua mão. Peça sua refeição favorita em segundos e aproveite momentos saborosos sem sair de casa!</p>
         <button class="cta">
