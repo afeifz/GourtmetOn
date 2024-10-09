@@ -140,7 +140,7 @@ function Hero() {
         </span>
         </button>
             </div>
-            <img className="imagem" src={Imagegem} alt={altText} style={{ width: '50%', height: 'auto', position: 'absolute', right: 0 , top: 100, marginRight: 0}}/>
+          
         </StyledHero>
     )
 }
