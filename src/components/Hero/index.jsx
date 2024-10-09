@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ImageComponent from "../imagens/images";
+import Imagegem from '../imagens/comida.jpg'
 
 
 const StyledHero = styled.div `
@@ -139,7 +140,7 @@ function Hero() {
         </span>
         </button>
             </div>
-            <ImageComponent imageUrl={imageUrl} altText={altText} />
+            <img className="imagem" src={Imagegem} alt={altText} style={{ width: '50%', height: 'auto', position: 'absolute', right: 0 , top: 100, marginRight: 0}}/>
         </StyledHero>
     )
 }
