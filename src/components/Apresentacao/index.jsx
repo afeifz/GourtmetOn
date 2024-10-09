@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPersonRunning,faPizzaSlice,faMoneyBill } from '@fortawesome/free-solid-svg-icons'
 
 const Header = styled.header`
   font-family:"Fira Sans", sans-serif;
@@ -55,30 +57,36 @@ function Apresentacao() {
   const [comidas, setComidas] = useState([]);
 
   useEffect(() => {
-
     const fetchData = async () => {
-
-      const response = await fetch('https://api.spoonacular.com/recipes/random?number=5&apiKey=7f03b251a1a3423a97ab937f0d327166');
-
-      const data = await response.json();
-
-      setComidas(data.recipes);
-
+      try {
+        const response = await fetch('https://api.spoonacular.com/recipes/random?number=5&apiKey=7f03b251a1a3423a97ab937f0d327166');
+  
+        if (!response.ok) {
+          throw new Error('Erro na resposta da API');
+        }
+  
+        const data = await response.json();
+        setComidas(data.recipes);
+  
+      } catch (error) {
+        console.error('Erro ao buscar os dados:', error);
+        setComidas([]); 
+      }
     };
-
+  
     fetchData();
-
   }, []);
+  
         return (
         
     <div id="apresentacao">
       <Header>
-        <h1>Experimente a Conveniência do Nosso App de Delivery</h1>
+        <h1> Experimente a Conveniência do Nosso App de Delivery</h1>
         <p>Com o nosso aplicativo, suas refeições favoritas estão a apenas alguns cliques de distância!</p>
       </Header>
     <SectionsWrapper>
       <Section>
-        <h2>🏃💨Entrega Rápida</h2>
+        <h2><FontAwesomeIcon icon={faPersonRunning} style={{color: "#ffa500",}} /> Entrega Rápida</h2>
         <p>
           Nosso sistema de entrega eficiente garante que você receba seus pedidos rapidamente. Graças à nossa rede de
           parceiros, priorizamos entregas ágeis e de qualidade, para que você possa aproveitar sua refeição fresquinha,
@@ -87,7 +95,7 @@ function Apresentacao() {
       </Section>
 
       <Section>
-        <h2>🍕Variedade de Restaurantes</h2>
+        <h2><FontAwesomeIcon icon={faPizzaSlice} style={{color: "#ffa500",}} /> Variedade de Restaurantes</h2>
         <p>
           Desde redes populares até pequenos negócios locais, nosso app oferece uma variedade incrível de opções.
           Descubra novos sabores, escolha seus pratos favoritos e explore a diversidade gastronômica diretamente do
@@ -96,7 +104,7 @@ function Apresentacao() {
       </Section>
 
       <Section>
-        <h2>💸Pagamento Fácil</h2>
+        <h2><FontAwesomeIcon icon={faMoneyBill} style={{color: "#ffa500",}} /> Pagamento Fácil</h2>
         <p>
           Oferecemos várias opções de pagamento para facilitar sua experiência: cartões de crédito, débito, carteiras
           digitais e mais. O processo é simples e seguro, garantindo que você finalize seu pedido sem preocupações, com
