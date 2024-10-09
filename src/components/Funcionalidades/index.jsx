@@ -31,12 +31,21 @@ const Section = styled.section `
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width:20%;
     font-family:"Fira Sans", sans-serif;
+    cursor:pointer;
     h1 {
         color:orange;
     }
     p {
         margin-top:1rem;
     }
+    &:hover{
+        background-color:orange;
+        transition:.4s;
+        h1 {
+            color:white;
+        }
+    }
+    
     @media (max-width:510px) {
         padding:2rem;
         width:10rem

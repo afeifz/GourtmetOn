@@ -25,6 +25,10 @@ const Section = styled.section `
         background-color:orange;
         cursor:pointer;
     }
+    button:hover {
+        background-color:#ecc700;
+        transition:.4s;
+    }
 
     @media (max-width:400px) {
         width:10rem;
