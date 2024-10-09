@@ -94,7 +94,7 @@ const StyledHero = styled.div `
 
 
 function Hero() {
-    const imageUrl = "src/components/imagens/comida.jpg";
+    const imageUrl = "./src/components/imagens/comida.jpg";
     const altText = "Descrição da imagem";
     return(
         <StyledHero>
