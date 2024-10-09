@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
 
 const Header = styled.header`
   font-family:"Fira Sans", sans-serif;
@@ -38,9 +39,6 @@ const Section = styled.section`
         font-size: 1.1em;
         color: #555;
     }
-    buttom {
-      background-color: #ff6347;;
-    }
 `;
 const SectionsWrapper = styled.div`
   display: flex;
@@ -48,10 +46,29 @@ const SectionsWrapper = styled.div`
   justify-content: space-around;
   margin: 20px 0;
   gap: 10px;
+
 `;
 
 
 function Apresentacao() {
+
+  const [comidas, setComidas] = useState([]);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+
+      const response = await fetch('https://api.spoonacular.com/recipes/random?number=5&apiKey=ba8aa7aeb93c4325a3476e61911d88b4');
+
+      const data = await response.json();
+
+      setComidas(data.recipes);
+
+    };
+
+    fetchData();
+
+  }, []);
         return (
         
     <div id="apresentacao">
@@ -61,7 +78,7 @@ function Apresentacao() {
       </Header>
     <SectionsWrapper>
       <Section>
-        <h2>🏃‍♂️💨Entrega Rápida</h2>
+        <h2>🏃💨Entrega Rápida</h2>
         <p>
           Nosso sistema de entrega eficiente garante que você receba seus pedidos rapidamente. Graças à nossa rede de
           parceiros, priorizamos entregas ágeis e de qualidade, para que você possa aproveitar sua refeição fresquinha,
@@ -87,6 +104,17 @@ function Apresentacao() {
         </p>
       </Section>
     </SectionsWrapper>
+    <Header>
+        <h1>Algumas Comidas Disponíveis em nosso app</h1>
+      </Header>
+    <SectionsWrapper>
+  {comidas.map(comida => (
+    <Section key={comida.id}>
+      <h2>{comida.title}</h2>
+      <p dangerouslySetInnerHTML={{ __html: comida.summary }} />
+    </Section>
+  ))}
+</SectionsWrapper>
     </div>
     )
 
