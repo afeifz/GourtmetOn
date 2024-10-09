@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ImageComponent from "../imagens/images";
+import Imagege from "../imagens/comida.jpg"
 
 
 const StyledHero = styled.div `
@@ -94,7 +95,7 @@ const StyledHero = styled.div `
 
 
 function Hero() {
-    const imageUrl = "./src/components/imagens/comida.jpg";
+    const imageUrl = "../src/components/imagens/comida.jpg";
     const altText = "Descrição da imagem";
     return(
         <StyledHero>
@@ -139,7 +140,7 @@ function Hero() {
         </span>
         </button>
             </div>
-            <ImageComponent imageUrl={imageUrl} altText={altText} />
+            <img className="imagem" src={Imagege} alt={altText} style={{ width: '50%', height: 'auto', position: 'absolute', right: 0 , top: 100, marginRight: 0}}/>
         </StyledHero>
     )
 }
